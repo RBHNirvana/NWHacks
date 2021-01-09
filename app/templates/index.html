@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../static/css/style.css">
-</head>
-<body>
+{% extends 'base.html' %}
 
+{% block head %}
+<title>Test</title>
+{% endblock %}
+
+{% block content %}
+<body>
     <div id="nav-bar">
         <div class="nav-item"><div class="nav-item-text">Name</div></div>
     </div>
@@ -18,4 +16,4 @@
         </div>
     </div>
 </body>
-</html>
+{% endblock %}
