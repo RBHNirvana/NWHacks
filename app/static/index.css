@@ -1,0 +1,45 @@
+.button {
+    border: none;
+    color: white;
+    width: 420px;
+    height: 512px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+  
+  .button1 {
+    background-color: white;
+    background-image: url(Group_5.svg); 
+    color: black; 
+    border: 2px solid #4CAF50;
+    border-radius: 12px;
+    margin-right: 100px;
+  }
+  
+  .button1:hover {
+    box-shadow: 2.5px 5px grey;
+  }
+  
+  .button2 {
+    background-color: white;
+    background-image: url(LandingPage-Purple-Background.svg); 
+    color: black; 
+    border: 2px solid #008CBA;
+    border-radius: 12px;
+    margin-left: 100px;
+  }
+  
+  .button2:hover {
+    box-shadow: 2.5px 5px grey;
+  }
+  .header {
+    padding-bottom: 69px;
+  }
+  .container {
+    text-align: center;
+  }
