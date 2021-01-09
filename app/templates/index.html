@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Test</title>
+<link rel="stylesheet" href="../static/index.css">
+<title>VolunteerMe Landing</title>
 {% endblock %}
 
 {% block content %}
 <body>
-    <div id="nav-bar">
-        <div class="nav-item"><div class="nav-item-text">Name</div></div>
+    <div class="header">
+      <h1><b>VolunteerMe</b></h1>
     </div>
-    <div id ="signin-container">
-        <div id="signin-row">
-            <div class="signin-box"><div class="signin-box-text">I'm a volunteer</div></div>
-            <div class="signin-box"><div class="signin-box-text">I'm an organization</div></div>
-        </div>
+    <div class ="container">
+      <button class="button button1" >I am a <br /><b>Volunteer</b></button>
+      <button class="button button2" >I am an <br /><b>Organization</b></button>
     </div>
-</body>
+  </body>
 {% endblock %}
