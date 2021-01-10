@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="../static/index.css">
+<title>VolunteerMe Landing</title>
+{% endblock %}
+
+{% block content %}
+<body>
+    <div class="header">
+      <h1>VolunteerMe</h1>
+    </div>
+    <div class ="form-container">
+        <form action="" method="post">
+            {{form.hidden_tag()}}
+
+            {{form.pos_name.label(class='label')}} </br>
+            {{form.pos_name(class='input')}} </br>
+
+            {{form.pos_summary.label(class='label')}} </br>
+            {{form.pos_summary(class='input')}} </br>
+
+            {{form.pos_location.label(class='label')}} </br>
+            {{form.pos_location(class='input')}} </br>
+
+            </br>
+            {{form.submit(class='submit')}}
+
+        </form>
+    </div>    
+</body>
+{% endblock %}
