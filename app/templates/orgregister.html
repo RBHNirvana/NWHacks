@@ -2,6 +2,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="../static/index.css">
+<link rel="stylesheet" href="../static/login.css">
 <title>Organization Login</title>
 {% endblock %}
 
@@ -11,15 +12,27 @@
     <h1>VolunteerMe</h1>
   </div>
   <div class ="button-container">
-      <div class="button button1" >
+      <div class="card1" >
         <p>
           <b>Login</b>
-        </p>
+        </p><br>
+        <label for="orgname">Organization Name</label><br>
+        <input type="text" name="orgname"></input><br>
+        <label for="orgname">Password</label><br>
+        <input type="text" name="password"></input><br>
+        <input type="button" name="login" value="Login"></input>
       </div>
-    <div class="button button2" >
+    <div class="card2" >
       <p>
           <b>Register</b>
-      </p>
+      </p><br>
+      <label for="orgname">Organization Name</label><br>
+        <input type="text" name="orgname"></input><br>
+        <label for="orgname">Email</label><br>
+        <input type="text" name="email"></input><br>
+        <label for="orgname">Password</label><br>
+        <input type="text" name="password"></input><br>
+        <input type="button" name="register" value="Register" style="text-align: left"></input>
   </div>
   </body>
 {% endblock %}
