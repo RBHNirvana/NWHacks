@@ -1,0 +1,17 @@
+.content-container{
+    text-align: center;
+}
+
+.posts-container{
+    justify-content: space-around;
+}
+
+.postings{
+    float: left;
+    width: 30%;
+}
+
+.info-container{
+    float: right;
+    width: 30%;
+}
