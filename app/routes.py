@@ -17,10 +17,11 @@ def index():
 
 
 #Orginization login/register
-@app.route('/orgregister')
+@app.route('/orgregister', methods=['GET', 'POST'])
 def orgregister():
     regform = OrgRegisterForm()
     loginform = OrgLogin()
+    print(regform.org_name.data)
     if regform.validate_on_submit():
         NewOrg = Organization(org_name = regform.org_name.data,
                               org_email = regform.org_email.data)
@@ -30,11 +31,15 @@ def orgregister():
         db.session.commit()
         return redirect(url_for('orgprofile'))
     elif loginform.validate_on_submit():
+        print("login validated\n\n")
         user = Organization.query.filter_by(org_name = loginform.org_email.data).first()
         login_user(user)
         #If the user is logged in
         if not user is None or not user.check_password(loginform.FIELD.data):
             return redirect(url_for('orgprofile'), org_id = current_user.id)
+    else:
+        print("Failed to validate")
+        flash("Bad credentials")
     return render_template('orgregister.html', regform=regform, loginform=loginform)
                        #org_id is for the /orgprofile so we know which profile to display
 
