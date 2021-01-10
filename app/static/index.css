@@ -5,6 +5,12 @@ html{
 body{
   margin: 0px;
   background-image: url(Landing-background-white.png);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #707070;
+}
+
+a{
+  text-decoration: none;
 }
 
 .button {
@@ -41,7 +47,7 @@ body{
   .header {
     background-color: white;
     padding-bottom: 3px;
-    margin-bottom: 149px;
+    margin-bottom: 69px;
     padding-top: 1px;
     color: #707070;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -61,3 +67,5 @@ body{
     font-weight: 400;
     font-size: xxx-large;
   }
+
+  
