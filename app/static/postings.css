@@ -3,8 +3,8 @@ body{
 }
 
 .tags-btn{
-    width: 35px;
-    height: 35px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     background-color: #c7c7c7;
 }
@@ -17,6 +17,14 @@ body{
     width: 33%;
     margin: auto;
     margin-bottom: 5px;
+}
+
+.tag-container a{
+    text-decoration: none;
+}
+
+.tag-container h2{
+    color: white;
 }
 
 .info-heading{
