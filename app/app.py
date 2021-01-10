@@ -5,3 +5,8 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/orgregister.html')
+def orgregister():
+    return render_template('orgregister.html')
