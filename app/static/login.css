@@ -1,6 +1,10 @@
+body{
+margin: 0px;
+background-image: url(LogReg-Background-White.png);
+}
 .card1 {
     background-image: url(LogReg-Login-SVG.svg); 
-    width: 380px;
+    width: 351px;
     height: 478px;
     border: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -8,12 +12,14 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 20px;
+    font-size: 15px;
     margin: 4px 2px;
-    border-radius: 45px;
-    margin-right: 100px;
+    background-color: white;
     background-size: contain;
     background-repeat: no-repeat;
+    border-radius: 45px;
+    margin-right: 100px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
   
   .card2 {
@@ -49,7 +55,9 @@
     box-sizing: border-box;
   }
   
-  input[type=button] {
+  input[type=submit] {
+    width: 30%;
+    height: 50%;
     cursor: pointer;
     background-color: #CC83E1;
     color: white;
