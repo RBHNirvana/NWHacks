@@ -94,3 +94,43 @@ a{
     height: 600px;
     border-radius: 25px;
 }
+
+.info-container > img{
+  float: left;
+  margin-left: 40px;
+  margin-right: 20px;
+}
+
+.org-location, .org-email{
+  text-align: initial;
+}
+
+.pos-title{
+  float: left;
+  margin-left: 30px;
+}
+
+.pos-location{
+  float: right;
+  margin-right: 35px;
+}
+
+.pos-location, .pos-title{
+  margin-top: 5px;
+}
+
+.divider{
+  background: #707070;
+  height: 1px;
+  width: 520px;
+  margin: auto;
+}
+
+.pos-description{
+  text-align: left;
+  margin: 50px 30px 0px 30px;
+}
+
+.apply-btn{
+  border-radius: 10px;
+}
