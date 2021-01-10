@@ -19,6 +19,8 @@
     border: 2px solid #4CAF50;
     border-radius: 12px;
     margin-right: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
   }
   
   .button1:hover {
