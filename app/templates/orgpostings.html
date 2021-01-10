@@ -45,38 +45,24 @@
 
             <!--Filler code until we get some entries in the data base-->
             <div class="postings-container">
-                {% for i in range(0, 8) %}
-
+                {% for position in current_org.positions %}
                 <div class="postings">
 
+
+
                     <div class="heading-post">
-                        <h4 class="pos-title">Pos</h4>
-                        <h4 class="org-name">Org Name</h4>
-                        <h4 class="num-applicants">#Applicants</h4>
+                        <p>Test</p>
+                        <h4 class="pos-title">{{position.pos_name}}</h4>
+                        <h4 class="org-name">{{position.pos_org}}</h4>
+                        <h4 class="pos-location">{{position.pos_location}}</h4>
+                        <p class="pos-description">{{position.pos_summary}}</p>
                     </div>
-                    <p class="pos-description">
-                        Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum has been the industry's
-                        standard dummy text ever since the 1500s, when an unknown
-                        printer took a galley of type and scrambled it to make a.
-                    </p>
+
 
                 </div>
-
                 {% endfor %}
             </div>
 
-                    <!--
-            {% for org in orgs %}
-                {% for position in org.positions %}
-                <div class="heading-post">
-                    <h4 class="pos-title">{position.pos_name}}</h4>
-                    <h4 class="org-name">{position.pos_org}}</h4>
-                    <h4 class="pos-location">{position.pos_location}}</h4>
-                    <p class="pos-description">{position.pos_summary}}</p>
-                </div>
-                {% endfor %}
-            {% endfor %}-->
 
             <div class="info-container">
                 <div class="info-heading">

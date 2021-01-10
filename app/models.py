@@ -24,6 +24,8 @@ class Organization(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+
+
 class Position(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     num_spots = db.Column(db.Integer)
