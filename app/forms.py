@@ -5,7 +5,7 @@ from wtforms.validators import ValidationError, DataRequired, DataRequired, Equa
 
 
 class OrgRegisterForm(FlaskForm):
-  org_name = StringField("org_name", validators=[DataRequired()])
+  org_name = StringField("Organization Name", validators=[DataRequired()])
   password = PasswordField("password", validators=[DataRequired(), Length(min=8, max=80)])
   org_email = StringField("org_email", validators=[DataRequired(), Email()])
   submit = SubmitField('Register')

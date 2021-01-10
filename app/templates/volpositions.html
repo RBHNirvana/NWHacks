@@ -20,36 +20,59 @@
         <div class="tags-bar">
         </div>
         <div class="posts-container">
-            <div class="postings">
-                <div class="heading-post">
-                    <h4 class="pos-title">Pos</h4>
-                    <h4 class="org-name">Org Name</h4>
-                    <h4 class="pos-location">Location</h4>
+
+            <!--Filler code until we get some entries in the data base-->
+            <div class="postings-container">
+                {% for i in range(0, 8) %}
+
+                <div class="postings">
+
+                    <div class="heading-post">
+                        <h4 class="pos-title">Pos</h4>
+                        <h4 class="org-name">Org Name</h4>
+                        <h4 class="pos-location">Location</h4>
+                    </div>
+                    <p class="pos-description">
+                        Lorem Ipsum is simply dummy text of the printing and
+                        typesetting industry. Lorem Ipsum has been the industry's
+                        standard dummy text ever since the 1500s, when an unknown
+                        printer took a galley of type and scrambled it to make a.
+                    </p>
+
                 </div>
-                <p class="pos-description">
-                    Lorem Ipsum is simply dummy text of the printing and 
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown 
-                    printer took a galley of type and scrambled it to make a.
-                </p>
+
+                {% endfor %}
             </div>
+
+                    <!--
+            {% for org in orgs %}
+                {% for position in org.positions %}
+                <div class="heading-post">
+                    <h4 class="pos-title">{position.pos_name}}</h4>
+                    <h4 class="org-name">{position.pos_org}}</h4>
+                    <h4 class="pos-location">{position.pos_location}}</h4>
+                    <p class="pos-description">{position.pos_summary}}</p>
+                </div>
+                {% endfor %}
+            {% endfor %}-->
+
             <div class="info-container">
                 <h1 class="org-highlighted-name">Organization</h1>
-                <img src="../static/warehouse.png" height= "75" width="75" alt="">
+                <img src="../static/warehouse.png" height="75" width="75" alt="">
                 <h4 class="org-location">Location</h4>
                 <h4 class="org-email">Email</h4>
                 <h3 class="pos-highlighted-title">Position Title</h3>
                 <h3 class="pos-highlighted-location">Location</h3>
                 <div class="divider"></div>
                 <p class="pos-highlighted-description">
-                    Lorem Ipsum is simply dummy text of the printing and 
+                    Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown 
-                    printer took a galley of type and scrambled it to make a 
-                    type specimen book. It has survived not only five centuries, 
-                    but also the leap into electronic typesetting, remaining 
-                    essentially unchanged. It was popularised in the 1960s with 
-                    the release of Letraset sheets containing Lorem Ipsum passages, 
+                    standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a
+                    type specimen book. It has survived not only five centuries,
+                    but also the leap into electronic typesetting, remaining
+                    essentially unchanged. It was popularised in the 1960s with
+                    the release of Letraset sheets containing Lorem Ipsum passages,
                     and more recently with desktop publishing software like Aldus
                     PageMaker including versions of Lorem Ipsum.
                 </p>

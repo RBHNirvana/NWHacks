@@ -15,12 +15,50 @@
     </a>
     </div> 
   </div>
-  <div class ="button-container">
+
+
+
+
+      <div class ="button-container">
       <div class="card1" >
         <p>
           <b>Login</b>
         </p><br>
-        <form action="" method = "">
+        <form action="" method = "post">
+          <label for="orgname">Organization Name</label><br>
+            {{loginform.}}
+          <input type="text" name="orgname"></input><br>
+          <label for="orgname">Password</label><br>
+          <input type="text" name="password"></input><br>
+          <label for="orgname"></label><br>
+          <input class="useless-hoe" type="text" name="password"></input><br>
+          <input type="submit" name="login" value="Login"></input><br>
+        </form>
+      </div>
+    <div class="card2" >
+      <p>
+          <b>Register</b>
+      </p><br>
+      <form action="" method ="post">
+        <label for="orgname">Organization Name</label><br>
+        <input type="text" name="orgname"></input><br>
+        <label for="orgname">Email</label><br>
+        <input type="text" name="email"></input><br>
+        <label for="orgname">Password</label><br>
+        <input type="text" name="password"></input><br>
+        <input type="submit" name="register" value="Register"></input>
+      </form>
+  </div>
+
+
+
+
+  <!--<div class ="button-container">
+      <div class="card1" >
+        <p>
+          <b>Login</b>
+        </p><br>
+        <form action="" method = "post">
           <label for="orgname">Organization Name</label><br>
           <input type="text" name="orgname"></input><br>
           <label for="orgname">Password</label><br>
@@ -34,7 +72,7 @@
       <p>
           <b>Register</b>
       </p><br>
-      <form action="" method ="">
+      <form action="" method ="post">
         <label for="orgname">Organization Name</label><br>
         <input type="text" name="orgname"></input><br>
         <label for="orgname">Email</label><br>
@@ -44,5 +82,5 @@
         <input type="submit" name="register" value="Register"></input>
       </form>
   </div>
-  </body>
+  </body>-->
 {% endblock %}
