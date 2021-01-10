@@ -50,6 +50,7 @@
   }
   
   input[type=button] {
+    cursor: pointer;
     background-color: #CC83E1;
     color: white;
     outline: none;
