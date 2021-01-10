@@ -25,17 +25,30 @@ body{
 .org-container{
     width: 50%;
     margin: auto;
-    height: 175px;
+    height: fit-content;
+    color: white;
+    margin-bottom: 125px;
+}
+
+.org-container h1,.org-container h4{
+    text-align: center;
 }
 
 .org-container img{
     float: left;
-    margin-right: 175px;
+    margin: 0px 50px 0px 150px;
+}
+
+.divide{
+    height: 2px;
+    width: 100%;
+    border-radius: 15px;
+    background-color: white;
+    margin-top: 50px;
 }
 
 .profiles-container{
         height: 70vh;
-        float: left;
         width: 60%;
         margin: auto;
 }
