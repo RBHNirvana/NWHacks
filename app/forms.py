@@ -5,29 +5,29 @@ from wtforms.validators import ValidationError, DataRequired, DataRequired, Equa
 
 
 class OrgRegisterForm(FlaskForm):
-  org_name = StringField("org_name", validators=[DataRequired()])
-  password = PasswordField("password", validators=[DataRequired(), Length(min=8, max=80)])
-  org_email = StringField("org_email", validators=[DataRequired(), Email()])
+  org_name = StringField("Organization Name", validators=[DataRequired()])
+  password = PasswordField("Password", validators=[DataRequired(), Length(min=3, max=80)])
+  org_email = StringField("Organization Email", validators=[DataRequired(), Email()])
   submit = SubmitField('Register')
 
 class PositionForm(FlaskForm):
-  pos_name = StringField("pos_name", validators=[DataRequired()])
-  pos_summary = StringField("pos_summary", validators=[DataRequired()])
+  pos_name = StringField("Position Title", validators=[DataRequired()])
+  pos_summary = StringField("Position Summary", validators=[DataRequired()])
   pos_location = StringField("Location", validators=[DataRequired()])
   submit = SubmitField('Send')
 
 class ApplicantForm(FlaskForm):
-  name = StringField("name", validators=[DataRequired()])
-  about = StringField("about", validators=[DataRequired()])
-  city = StringField("city", validators=[DataRequired()])
+  name = StringField("Name", validators=[DataRequired()])
+  about = StringField("About", validators=[DataRequired()])
+  city = StringField("City", validators=[DataRequired()])
   indoors = BooleanField("Indoor activities")
   outdoors = BooleanField("Outdoor activities")
   remote = BooleanField("Remote")
   submit = SubmitField('Send')
 
 class OrgLogin(FlaskForm):
-  org_email = StringField("org_email", validators=[DataRequired(), Email()])
-  password = PasswordField("password", validators=[DataRequired()])
+  org_email = StringField("Organization Email", validators=[DataRequired(), Email()])
+  password = PasswordField("Password", validators=[DataRequired()])
   submit = SubmitField('Login')
 
 class OrgSummary(FlaskForm):
@@ -35,7 +35,7 @@ class OrgSummary(FlaskForm):
     submit = SubmitField('Update')
 
 class Filter(FlaskForm):
-  city = StringField("city", validators=[DataRequired()])
+  city = StringField("City", validators=[DataRequired()])
   indoors = BooleanField("Indoor activities")
   outdoors = BooleanField("Outdoor activities")
   remote = BooleanField("Remote")

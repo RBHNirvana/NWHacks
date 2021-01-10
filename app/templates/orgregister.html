@@ -9,14 +9,62 @@
 {% block content %}
 <body>
   <div class="header">
-    <h1>VolunteerMe</h1>
+    <div class="title">
+      <a href="{{url_for('index')}}">
+      <h1>VolunteerMe</h1>
+    </a>
+    </div> 
   </div>
-  <div class ="button-container">
+
+      <div class ="button-container">
       <div class="card1" >
         <p>
           <b>Login</b>
         </p><br>
-        <form action="" method = "">
+            <form action="" method="post">
+                {{loginform.org_email.label(class='label')}} </br>
+                {{loginform.org_email(class='input')}} </br>
+
+                {{loginform.password.label(class='label')}} </br>
+                {{loginform.password(class='input')}} </br>
+
+                </br>
+                </br>
+
+                {{loginform.submit(class='submit')}}
+
+            </form>
+      </div>
+    <div class="card2" >
+      <p>
+          <b>Register</b>
+      </p><br>
+          <form action="" method="post">
+
+              {{regform.org_name.label(class='label')}} </br>
+              {{regform.org_name(class='input')}} </br>
+
+              {{regform.org_email.label(class='label')}} </br>
+              {{regform.org_email(class='input')}} </br>
+
+              {{regform.password.label(class='label')}} </br>
+              {{regform.password(class='input')}} </br>
+
+              </br>
+              {{regform.submit(class='submit')}}
+
+          </form>
+  </div>
+
+
+
+
+  <!--<div class ="button-container">
+      <div class="card1" >
+        <p>
+          <b>Login</b>
+        </p><br>
+        <form action="" method = "post">
           <label for="orgname">Organization Name</label><br>
           <input type="text" name="orgname"></input><br>
           <label for="orgname">Password</label><br>
@@ -30,7 +78,7 @@
       <p>
           <b>Register</b>
       </p><br>
-      <form action="" method ="">
+      <form action="" method ="post">
         <label for="orgname">Organization Name</label><br>
         <input type="text" name="orgname"></input><br>
         <label for="orgname">Email</label><br>
@@ -40,5 +88,5 @@
         <input type="submit" name="register" value="Register"></input>
       </form>
   </div>
-  </body>
+  </body>-->
 {% endblock %}

@@ -25,6 +25,8 @@ class Position(db.Model):
     spots_filled = db.Column(db.Integer)
     pos_name = db.Column(db.String(100))
     pos_summary = db.Column(db.String(1000))
+    pos_org = db.Column(db.String(100))
+    pos_location = db.Column(db.String(100))
     org_id = db.Column(db.Integer, db.ForeignKey('organization.id'))
     applicants = db.relationship('Applicant', backref = 'owner', lazy='dynamic')
 
