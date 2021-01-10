@@ -11,7 +11,7 @@ def initDB(*args, **kwargs):
 
 
 @app.route('/orgregister.html')
-def logout():
+def logoutTemp():
     return render_template('orgregister.html')
 
 @app.route('/orgpostings.html')
@@ -38,20 +38,17 @@ def orgregister():
         NewOrg.id = Organization.query.count() + 1
         db.session.add(NewOrg)
         db.session.commit()
-        print("after db commit")
         user = NewOrg
         login_user(user)
         return redirect(url_for('orgprofile', org_id = NewOrg.id))
     elif loginform.validate_on_submit():
-        print("login validated\n\n")
-        user = Organization.query.filter_by(org_name = loginform.org_email.data).first()
-        login_user(user)
-        user_id = Organization.query.filter_by(org_id = loginform.org_email.data).first()
+        user = Organization.query.filter_by(org_email = loginform.org_email.data).first()
+        user_id = user.id
         #If the user is logged in
-        if not user is None or not user.check_password(loginform.FIELD.data):
+        if not user is None or not user.check_password(loginform.password.data):
+            login_user(user)
             return redirect(url_for('orgprofile', org_id = user_id))
     else:
-        print("Failed to validate")
         flash("Bad credentials")
     return render_template('orgregister.html', regform=regform, loginform=loginform)
                        #org_id is for the /orgprofile so we know which profile to display
@@ -73,10 +70,10 @@ def orgprofile(org_id):
 
     #Only show the form if the org owner is on the page
     if(current_user.id == org_id):
-        return render_template('orgprofile.html', form=form, org = org)
+        return render_template('profiles.html', form=form, org=org)
         #using jinja 2 we need to say something like {% if form %}
     else:
-        return render_template('orgprofile.html', org=org)
+        return render_template('profiles.html', org=org)
    
     
 
@@ -106,3 +103,9 @@ def volpositions():
     #positions = Organization.query().join(Position).filter().all()
 
     return render_template('volpositions.html', orgs=orgs)
+
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
