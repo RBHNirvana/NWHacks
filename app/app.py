@@ -10,3 +10,7 @@ def index():
 @app.route('/orgregister.html')
 def orgregister():
     return render_template('orgregister.html')
+
+@app.route('/volpositions.html')
+def volpositions():
+    return render_template('volpositions.html')
