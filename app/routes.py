@@ -14,10 +14,6 @@ def initDB(*args, **kwargs):
 def logoutTemp():
     return render_template('orgregister.html')
 
-@app.route('/orgpostings.html')
-def orgpostings():
-    return render_template('orgpostings.html')
-
 @app.route('/profiles.html')
 def profiles():
     return render_template('profiles.html')
@@ -77,13 +73,15 @@ def orgprofile(org_id):
    
     
 
-@app.route('/orgpostings<org_id>', methods = ['GET', 'POST'])
-def ortpostings(org_id):
-    #If the user's id doesn't match the page ID, redirect them back to that orgs page
-    if(current_user.id != org_id):
-        return redirect(url_for('/orgprofile<org_id>'))
-    current_org = Organization.query.filter_by(id = org_id)
-    return render_template('orgpostings.html', current_ort = current_org)
+@app.route('/orgpostings', methods = ['GET', 'POST'])
+def orgpostings():
+
+    current_org = Organization.query.filter_by(id = current_user.get_id()).first()
+
+    for position in current_org.positions:
+        print("A position")
+
+    return render_template('orgpostings.html', current_org = current_org)
 
 
 
@@ -93,14 +91,6 @@ def volpositions():
     #We need a boolean form for the filters
     form = Filter()
     orgs = Organization.query.all() #query might be wrong?
-    #positions = []
-    #for org in orgs:
-        #print(type(org))
-        #for position in org.positions.query().all():
-            #if(form.FILTER1.data == position.TAG1
-               #and form.FILTER2.data == position.TAG2)
-            #positions.append(position)
-    #positions = Organization.query().join(Position).filter().all()
 
     return render_template('volpositions.html', orgs=orgs)
 
@@ -120,6 +110,5 @@ def create():
         new_Pos.id = Position.query.count() + 1
         db.session.add(new_Pos)
         db.session.commit()
-        print("commited")
         return redirect(url_for('orgprofile', org_id = current_user.id))
     return render_template('create.html', form=form)
