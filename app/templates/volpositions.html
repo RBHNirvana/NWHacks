@@ -28,11 +28,12 @@
                 <div class="postings">
 
                     <div class="heading-post">
-                        <h4 class="pos-title">{{position.pos_name}}</h4>
-                        <h4 class="org-name">{{position.pos_org}}</h4>
-                        <h4 class="pos-location">{{position.pos_location}}</h4>
-                        <p class="pos-description">{{position.pos_summary}}</p>
+                        <h4 class="pos-title">Position: {{position.pos_name}}</h4>
+                        <h4 class="org-name">Org Name: {{position.pos_org}}</h4>
+                        <h4 class="pos-location">Location: {{position.pos_location}}</h4>
                     </div>
+                    <p style="margin-left:20px; text-align: initial">Description:</p>
+                    <p class="pos-description">{{position.pos_summary}}</p>
 
                 </div>
                 {% endfor %}
