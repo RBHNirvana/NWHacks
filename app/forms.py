@@ -13,15 +13,30 @@ class OrgRegisterForm(FlaskForm):
 class PositionForm(FlaskForm):
   pos_name = StringField("pos_name", validators=[DataRequired()])
   pos_summary = StringField("pos_summary", validators=[DataRequired()])
+  pos_location = StringField("Location", validators=[DataRequired()])
   submit = SubmitField('Send')
 
 class ApplicantForm(FlaskForm):
   name = StringField("name", validators=[DataRequired()])
   about = StringField("about", validators=[DataRequired()])
   city = StringField("city", validators=[DataRequired()])
+  indoors = BooleanField("Indoor activities")
+  outdoors = BooleanField("Outdoor activities")
+  remote = BooleanField("Remote")
   submit = SubmitField('Send')
 
 class OrgLogin(FlaskForm):
   org_email = StringField("org_email", validators=[DataRequired(), Email()])
   password = PasswordField("password", validators=[DataRequired()])
   submit = SubmitField('Login')
+
+class OrgSummary(FlaskForm):
+    org_summary = StringField("Summary", validators=[DataRequired()])
+    submit = SubmitField('Update')
+
+class Filter(FlaskForm):
+  city = StringField("city", validators=[DataRequired()])
+  indoors = BooleanField("Indoor activities")
+  outdoors = BooleanField("Outdoor activities")
+  remote = BooleanField("Remote")
+  submit = SubmitField('Refresh')

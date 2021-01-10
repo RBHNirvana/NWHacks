@@ -1,6 +1,6 @@
 from app import app, db
 from flask import render_template, flash, redirect, url_for, request
-from app.forms import OrgRegisterForm, PositionForm, ApplicantForm, OrgLogin
+from app.forms import OrgRegisterForm, PositionForm, ApplicantForm, OrgLogin, OrgSummary, Filter
 from app.models import Organization, Position, Applicant
 
 
@@ -13,7 +13,6 @@ def initDB(*args, **kwargs):
 @app.route('/')
 def index():
     return render_template('index.html')
-
 
 
 
@@ -45,7 +44,7 @@ def orgregister():
 @app.route('/orgprofile<org_id>', methods=['GET', 'POST'])
 def orgprofile(org_id):
     org = Organization.query.filter_by(id=org_id)
-    form = OrgSummaryForm() #NEED TO MAKE AN OrgSummaryForm ======================
+    form = OrgSummary()
 
     #if the summary was edited...
     if form.validate_on_submit():
@@ -78,8 +77,8 @@ def ortpostings(org_id):
 @app.route('/volpositions')
 def volpositions():
     #We need a boolean form for the filters
-    form = FilterForm()
-    #orgs = Organization.query().all() #query might be wrong?
+    form = Filter()
+    orgs = Organization.query.all() #query might be wrong?
     #positions = []
     #for org in orgs:
         #print(type(org))
@@ -87,6 +86,6 @@ def volpositions():
             #if(form.FILTER1.data == position.TAG1
                #and form.FILTER2.data == position.TAG2)
             #positions.append(position)
-    positions = Organization.query().join(Position).filter().all()
+    #positions = Organization.query().join(Position).filter().all()
 
-    return render_template('volpositions.html', positions=positions)
+    return render_template('volpositions.html', orgs=orgs)
