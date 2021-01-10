@@ -1,5 +1,10 @@
+html{
+  height: 100%;
+}
+
 body{
   margin: 0px;
+  background-image: url(Landing-background-white.png);
 }
 
 .button {
@@ -39,8 +44,10 @@ body{
     box-shadow: 2.5px 5px grey;
   }*/
   .header {
+    background-color: white;
     padding-bottom: 3px;
     margin-bottom: 149px;
+    padding-top: 1px;
     color: #707070;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-shadow: 0 4px 2px -2px gray;
