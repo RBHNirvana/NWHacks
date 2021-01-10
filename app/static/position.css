@@ -19,6 +19,25 @@
     border-radius: 25px;
 }
 
+.heading-post{
+    display: flex;
+    margin-top: 5px;
+}
+
+.heading-post *{
+    margin: 10px;
+}
+
+.pos-title, .org-name, .pos-location{
+    width: 25%;
+}
+
+.pos-description{
+    font-size: 12px;
+    margin: 0px 20px 10px 20px;
+    text-align: justify;
+}
+
 .info-container{
     float: right;
     width: 50%;
