@@ -110,10 +110,16 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
-@app.route('/create')
+@app.route('/create', methods = ['GET', 'POST'])
 def create():
     form = PositionForm()
     if form.validate_on_submit():
-        #add to db
+        print("validated\n")
+        print(form.pos_name, form.pos_summary, form.pos_location, current_user.get_id())
+        new_Pos = Position(pos_name=form.pos_name.data, pos_summary=form.pos_summary.data, pos_location=form.pos_location.data, org_id=current_user.get_id())
+        new_Pos.id = Position.query.count() + 1
+        db.session.add(new_Pos)
+        db.session.commit()
+        print("commited")
         return redirect(url_for('orgprofile', org_id = current_user.id))
     return render_template('create.html', form=form)
