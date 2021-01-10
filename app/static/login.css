@@ -65,3 +65,11 @@ background-image: url(LogReg-Background-White.png);
     border: 1px solid #CC83E1;
     border-radius: 450px;
   }
+
+.useless-hoe{
+  background-color: white !important;
+  border: none !important;
+  cursor: default !important;
+  caret-color: transparent !important;
+  color: white !important;
+}
