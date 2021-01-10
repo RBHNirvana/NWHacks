@@ -3,9 +3,14 @@
 from app import db
 from flask import session
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
+from app import login
 
+@login.user_loader
+def load_organization(id):
+    return Organization.query.get(int(id))
 
-class Organization(db.Model):
+class Organization(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key = True)
     org_name = db.Column(db.String(100))
     password_hash = db.Column(db.String(128))

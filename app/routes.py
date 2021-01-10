@@ -2,6 +2,7 @@ from app import app, db
 from flask import render_template, flash, redirect, url_for, request
 from app.forms import OrgRegisterForm, PositionForm, ApplicantForm, OrgLogin, OrgSummary, Filter
 from app.models import Organization, Position, Applicant
+from flask_login import current_user, login_user, logout_user, login_required
 
 
 @app.before_first_request
@@ -10,7 +11,7 @@ def initDB(*args, **kwargs):
 
 
 @app.route('/orgregister.html')
-def logout():
+def logoutTemp():
     return render_template('orgregister.html')
 
 @app.route('/orgpostings.html')
@@ -25,33 +26,32 @@ def profiles():
 def index():
     return render_template('index.html')
 
-#Orginization login/register
 @app.route('/orgregister', methods=['GET', 'POST'])
 def orgregister():
     regform = OrgRegisterForm()
     loginform = OrgLogin()
-    print(regform.org_name.data)
+
     if regform.validate_on_submit():
         NewOrg = Organization(org_name = regform.org_name.data,
                               org_email = regform.org_email.data)
-        NewOrg.set_password(regform.password.data)
+        NewOrg.set_password(regform.password.data)  
         NewOrg.id = Organization.query.count() + 1
         db.session.add(NewOrg)
         db.session.commit()
-        return redirect(url_for('orgprofile'))
-    elif loginform.validate_on_submit():
-        print("login validated\n\n")
-        user = Organization.query.filter_by(org_name = loginform.org_email.data).first()
+        user = NewOrg
         login_user(user)
+        return redirect(url_for('orgprofile', org_id = NewOrg.id))
+    elif loginform.validate_on_submit():
+        user = Organization.query.filter_by(org_email = loginform.org_email.data).first()
+        user_id = user.id
         #If the user is logged in
-        if not user is None or not user.check_password(loginform.FIELD.data):
-            return redirect(url_for('orgprofile'), org_id = current_user.id)
+        if not user is None or not user.check_password(loginform.password.data):
+            login_user(user)
+            return redirect(url_for('orgprofile', org_id = user_id))
     else:
-        print("Failed to validate")
         flash("Bad credentials")
     return render_template('orgregister.html', regform=regform, loginform=loginform)
                        #org_id is for the /orgprofile so we know which profile to display
-
 
 
 #Orginization Profile
@@ -70,10 +70,10 @@ def orgprofile(org_id):
 
     #Only show the form if the org owner is on the page
     if(current_user.id == org_id):
-        return render_template('orgprofile.html', form=form, org = org)
+        return render_template('profiles.html', form=form, org=org)
         #using jinja 2 we need to say something like {% if form %}
     else:
-        return render_template('orgprofile.html', org=org)
+        return render_template('profiles.html', org=org)
    
     
 
@@ -103,3 +103,9 @@ def volpositions():
     #positions = Organization.query().join(Position).filter().all()
 
     return render_template('volpositions.html', orgs=orgs)
+
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
