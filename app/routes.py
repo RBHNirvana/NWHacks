@@ -1,11 +1,7 @@
- from flask import Flask, render_template
-from flask_login import current_user, login_user, logout_user, login_required
-#from app.forms import #imports here
+from app import app, db
+from flask import render_template, flash, redirect, url_for, request
+from app.forms import OrgRegisterForm, PositionForm, ApplicantForm, OrgLogin
 from app.models import Organization, Position, Applicant
-
-
-app = Flask(__name__)
-
 
 
 @app.before_first_request
@@ -20,15 +16,16 @@ def index():
 
 
 
+
 #Orginization login/register
-@app.route('/orgregister', methods=['GET', 'POST'])
+@app.route('/orgregister')
 def orgregister():
     regform = OrgRegisterForm()
     loginform = OrgLogin()
     if regform.validate_on_submit():
-        NewOrg = Organization(org_name = form.org_name.data,
-                              org_email = form.org_email.data)
-        NewOrg.set_password(form.password.data)
+        NewOrg = Organization(org_name = regform.org_name.data,
+                              org_email = regform.org_email.data)
+        NewOrg.set_password(regform.password.data)
         NewOrg.id = Organization.query.count() + 1
         db.session.add(NewOrg)
         db.session.commit()
@@ -39,8 +36,7 @@ def orgregister():
         #If the user is logged in
         if not user is None or not user.check_password(loginform.FIELD.data):
             return redirect(url_for('orgprofile'), org_id = current_user.id)
-    return render_template('orgregister.html', regform=regform,
-                          loginform = loginform)
+    return render_template('orgregister.html', regform=regform, loginform=loginform)
                        #org_id is for the /orgprofile so we know which profile to display
 
 
