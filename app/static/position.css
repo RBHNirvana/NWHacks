@@ -1,0 +1,78 @@
+.content-container{
+    text-align: center;
+}
+
+.posts-container{
+    justify-content: space-around;
+    width: 60%;
+    margin: auto;
+    padding: 0px 50px;
+}
+
+.postings, .info-container{
+    background: white;
+}
+
+.postings{
+    float: left;
+    width: 40%;
+    border-radius: 25px;
+}
+
+.info-container{
+    float: right;
+    width: 50%;
+    height: 600px;
+    border-radius: 25px;
+}
+
+.info-container > img{
+  float: left;
+  margin-left: 40px;
+  margin-right: 20px;
+}
+
+.org-location, .org-email{
+  text-align: initial;
+}
+
+.pos-highlighted-title{
+  float: left;
+  margin-left: 30px;
+}
+
+.pos-highlighted-location{
+  float: right;
+  margin-right: 35px;
+}
+
+.pos-highlighted-location, .pos-highlighted-title{
+  margin-top: 5px;
+}
+
+.divider{
+  background: #707070;
+  height: 1px;
+  width: 520px;
+  margin: auto;
+}
+
+.pos-highlighted-description{
+  text-align: left;
+  margin: 50px 30px 0px 30px;
+}
+
+.apply-btn{
+  border-radius: 30px;
+  margin-top: 100px;
+  width: 120px;
+  background-color: #83E1A2;
+  color: white;
+  height: 30px;
+  font-size: 20px;
+  border: none;
+}
+
+.apply-btn:hover{
+  cursor: pointer;
+}
