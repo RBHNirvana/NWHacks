@@ -22,6 +22,8 @@
           <b>Login</b>
         </p><br>
             <form action="" method="post">
+                {{loginform.hidden_tag()}}
+
                 {{loginform.org_email.label(class='label')}} </br>
                 {{loginform.org_email(class='input')}} </br>
 
@@ -40,6 +42,7 @@
           <b>Register</b>
       </p><br>
           <form action="" method="post">
+              {{regform.hidden_tag()}}
 
               {{regform.org_name.label(class='label')}} </br>
               {{regform.org_name(class='input')}} </br>

@@ -2,6 +2,7 @@ from app import app, db
 from flask import render_template, flash, redirect, url_for, request
 from app.forms import OrgRegisterForm, PositionForm, ApplicantForm, OrgLogin, OrgSummary, Filter
 from app.models import Organization, Position, Applicant
+from flask_login import current_user, login_user, logout_user, login_required
 
 
 @app.before_first_request
@@ -25,33 +26,35 @@ def profiles():
 def index():
     return render_template('index.html')
 
-#Orginization login/register
 @app.route('/orgregister', methods=['GET', 'POST'])
 def orgregister():
     regform = OrgRegisterForm()
     loginform = OrgLogin()
-    print(regform.org_name.data)
+
     if regform.validate_on_submit():
         NewOrg = Organization(org_name = regform.org_name.data,
                               org_email = regform.org_email.data)
-        NewOrg.set_password(regform.password.data)
+        NewOrg.set_password(regform.password.data)  
         NewOrg.id = Organization.query.count() + 1
         db.session.add(NewOrg)
         db.session.commit()
-        return redirect(url_for('orgprofile'))
+        print("after db commit")
+        user = NewOrg
+        login_user(user)
+        return redirect(url_for('orgprofile', org_id = NewOrg.id))
     elif loginform.validate_on_submit():
         print("login validated\n\n")
         user = Organization.query.filter_by(org_name = loginform.org_email.data).first()
         login_user(user)
+        user_id = Organization.query.filter_by(org_id = loginform.org_email.data).first()
         #If the user is logged in
         if not user is None or not user.check_password(loginform.FIELD.data):
-            return redirect(url_for('orgprofile'), org_id = current_user.id)
+            return redirect(url_for('orgprofile', org_id = user_id))
     else:
         print("Failed to validate")
         flash("Bad credentials")
     return render_template('orgregister.html', regform=regform, loginform=loginform)
                        #org_id is for the /orgprofile so we know which profile to display
-
 
 
 #Orginization Profile
