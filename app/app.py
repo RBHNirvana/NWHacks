@@ -23,7 +23,7 @@ def index():
 #Orginization login/register
 @app.route('/orgregister', methods=['GET', 'POST'])
 def orgregister():
-    regform = OrgRegisterform()
+    regform = OrgRegisterForm()
     loginform = OrgLogin()
     if regform.validate_on_submit():
         NewOrg = Organization(org_name = form.org_name.data,
