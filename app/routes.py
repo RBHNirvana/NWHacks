@@ -9,12 +9,21 @@ def initDB(*args, **kwargs):
     db.create_all()
 
 
+@app.route('/orgregister.html')
+def logout():
+    return render_template('orgregister.html')
+
+@app.route('/orgpostings.html')
+def orgpostings():
+    return render_template('orgpostings.html')
+
+@app.route('/profiles.html')
+def profiles():
+    return render_template('profiles.html')
 
 @app.route('/')
 def index():
     return render_template('index.html')
-
-
 
 #Orginization login/register
 @app.route('/orgregister', methods=['GET', 'POST'])

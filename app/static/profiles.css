@@ -1,0 +1,23 @@
+body{
+    background-image: url('OrgProfile-Background-SVG.svg');
+    background-size: cover;
+}
+
+.rightside {
+    width: 5%;
+    float: right;
+}
+.rightside1{
+    width: 4%;
+    float: right;
+}
+
+.rightside > a{
+    text-decoration: none;
+    color: #707070;
+}
+
+.rightside1 > a{
+    text-decoration: none;
+    color: #707070;
+}
