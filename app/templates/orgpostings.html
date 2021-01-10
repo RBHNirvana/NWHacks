@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<link rel="stylesheet" href="../static/index.css">
+<link rel="stylesheet" href="../static/position.css">
+<link rel="stylesheet" href="../static/postings.css">
+<title>VolunteerMe</title>
+{% endblock %}
+
+{% block content %}
+<body>
+    <div class="header">
+        <div class="title">
+            <a href="{{url_for('index')}}"> 
+            <h1>VolunteerMe</h1>
+            </a>
+            <div class="right">
+                <h1>Profile</h1>
+                <h1>Postings</h1>
+                <h1>Logout</h1>
+            </div>
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="tag-container">
+            <div class="tags-btn"></div>
+        </div>
+        <div class="posts-container">
+
+            <!--Filler code until we get some entries in the data base-->
+            <div class="postings-container">
+                {% for i in range(0, 8) %}
+
+                <div class="postings">
+
+                    <div class="heading-post">
+                        <h4 class="pos-title">Pos</h4>
+                        <h4 class="org-name">Org Name</h4>
+                        <h4 class="num-applicants">#Applicants</h4>
+                    </div>
+                    <p class="pos-description">
+                        Lorem Ipsum is simply dummy text of the printing and
+                        typesetting industry. Lorem Ipsum has been the industry's
+                        standard dummy text ever since the 1500s, when an unknown
+                        printer took a galley of type and scrambled it to make a.
+                    </p>
+
+                </div>
+
+                {% endfor %}
+            </div>
+
+                    <!--
+            {% for org in orgs %}
+                {% for position in org.positions %}
+                <div class="heading-post">
+                    <h4 class="pos-title">{position.pos_name}}</h4>
+                    <h4 class="org-name">{position.pos_org}}</h4>
+                    <h4 class="pos-location">{position.pos_location}}</h4>
+                    <p class="pos-description">{position.pos_summary}}</p>
+                </div>
+                {% endfor %}
+            {% endfor %}-->
+
+            <div class="info-container">
+                <div class="info-heading">
+                    <h1 class="selected" style="float: left;">Post</h1>
+                    <h1 style="float: right;">Applicants</h1>
+                </div>
+                <div class="info-content">
+                    <div class="titles">
+                        <h4>Position Title</h4>
+                        <h4>Org Name</h4>
+                        <h4>#Applicants</h4>
+                    </div>
+                    <p class="high-descript">
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed 
+                        diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                        aliquyam erat, sed diam voluptua. At vero eos et accusam et 
+                        justo duo dolores et ea rebum. Stet clita kasd gubergren, no
+                        sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem 
+                        ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
+                        nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
+                        erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores et ea rebum. Lorem ipsum dolor sit amet, consetetur 
+                        sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut 
+                        labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+                        eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+                        gubergren, no sea takimata sanctus est Lorem ipsum dolor sit 
+                        amet.
+                    </p>
+                    <div class="org-button-container">
+                        <button>Edit</button>
+                        <button>Delete</button>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</body>
+{% endblock %}
