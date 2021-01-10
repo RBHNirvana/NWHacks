@@ -109,3 +109,11 @@ def volpositions():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+@app.route('/create')
+def create():
+    form = PositionForm()
+    if form.validate_on_submit():
+        #add to db
+        return redirect(url_for('orgprofile', org_id = current_user.id))
+    return render_template('create.html', form=form)
