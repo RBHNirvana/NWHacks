@@ -23,7 +23,7 @@ def profiles():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('profiles.html')
 
 #Orginization login/register
 @app.route('/orgregister', methods=['GET', 'POST'])
